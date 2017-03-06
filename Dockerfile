@@ -49,4 +49,8 @@ RUN curl -Lk -o $PHANTOMJS_ARCHIVE https://github.com/fgrehm/docker-phantomjs2/r
 	&& cp -R /tmp/usr/lib/x86_64-linux-gnu /usr/ \
 	&& cp -R /tmp/usr/share/* /usr/share/ \
 	&& cp /tmp/usr/local/bin/phantomjs /usr/bin/ \
-	&& rm -fr $PHANTOMJS_ARCHIVE  /tmp/*
+	&& rm -fr $PHANTOMJS_ARCHIVE  /tmp/* \
+	&& ln -s /usr/bin/phantomjs /usr/local/bin/phantomjs
+
+WORKDIR /opt/app
+CMD [ "npm", "start" ]
