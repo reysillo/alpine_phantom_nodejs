@@ -17,6 +17,6 @@ RUN curl -Lk -o $PHANTOMJS_ARCHIVE https://github.com/fgrehm/docker-phantomjs2/r
 	&& cp /tmp/usr/local/bin/phantomjs /usr/bin/ \
 	&& rm -fr $PHANTOMJS_ARCHIVE  /tmp/* \
 	&& ln -s /usr/bin/phantomjs /usr/local/bin/phantomjs
-
+RUN npm install pm2@latest -g
 WORKDIR /opt/app
 CMD [ "npm", "start" ]
