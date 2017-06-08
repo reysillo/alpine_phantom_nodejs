@@ -49,6 +49,8 @@ RUN curl -Lk -o $PHANTOMJS_ARCHIVE https://github.com/fgrehm/docker-phantomjs2/r
 	&& ln -s /usr/bin/phantomjs /usr/local/bin/phantomjs
 
 WORKDIR /opt/app
+RUN cd /opt/app \
+	&& npm install sharp
 CMD [ "npm", "start" ]
 
 #________________________________________________
